@@ -1,4 +1,4 @@
-# ros-esp32cam-diffdrive
+# ros-esp32 freertos 
 
 This is a ROS 2 & micro-ROS project to control an RC tank with differential drive (skid steering) with an ESP32-CAM module. 
 I'm using an XBox 360 gamepad connected to a PC running *Ubuntu 20.04* and [ROS 2 Foxy](https://docs.ros.org/en/foxy/index.html) as teleoperation input. 
