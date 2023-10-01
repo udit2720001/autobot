@@ -153,21 +153,3 @@ cd microros_ws/firmware/freertos_apps/apps/ros_esp32cam_diffdrive/teleop/launch
 ros2 launch teleop-launch.py 
 ```
 
-## Further plans
-
-Originally, I wanted to use [PlatformIO](https://platformio.org/) to program the microcontroller. 
-However, due to the build steps described in this [blog post](https://discourse.ros.org/t/micro-ros-porting-to-esp32/16101), I've abandoned PlatformIO for now. 
-This also means, that I don't have a fully functioning IDE with code completion and insights yet and programmed this example more or less in a bland editor. 
-You can definitely see that in the code ;)
-So I'm trying to figure out how get all those IDE features back while still being able to build a micro-ROS app. 
- 
-Another step will be the incorporation of the built-in camera of the ESP32-CAM module as stated in the name of the repo. 
-I guess, there are some extra firmware configurations needed to enable the camera and the onboard PSRam.
-
-Additionally, I'm not satisfied with the calculation of the left and right motor values, as the current configuration only outputs 50% of max speed when going forward. 
-Some smarter mathematics with focus on fun instead of precise movement are needed, since the robot doesn't measure the wheel rotations or odometry anyway. Current calculation:
-
-```C
-float left = (linear - angular) / 2.0f;
-float right = (linear + angular) / 2.0f;
-```
